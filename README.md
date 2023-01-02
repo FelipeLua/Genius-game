@@ -1,2 +1,2 @@
-# Genius-game
-Memory game Genius
+# Genius-games
+Genius style memory game

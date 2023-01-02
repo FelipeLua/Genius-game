@@ -1,0 +1,242 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+   --normal-green: #009141;
+   --normal-red:  #9b020a;
+   --normal-yellow: #886f02;
+   --normal-blue: #00458f;
+
+   --light-green: #00ff73;
+   --light-red:  #ff0000;
+   --light-yellow: #ffcc02;
+   --light-blue: #0080ff;
+
+   --border-color: #333333;
+   --center-color: #c9e6f1;
+}
+
+html{
+   font-size: 62.5%;
+}
+ 
+ body {
+     margin: 0;
+     font-family: "bungee", verdana, sans-serif;
+     
+     background-image: url("/image/wallpaper.jpg");
+     background-repeat: no-repeat;
+     background-blend-mode: multiply;
+     background-color: rgba(19, 6, 36, 0.8);
+     background-size: cover;
+     background-position: top;
+ }
+
+ .container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .game {
+     display: grid;
+     grid-template-areas: "verde vermelho" "amarelo azul";
+     grid-gap: 1.7rem;
+     border: 1.7rem solid var(--border-color);
+     background-color: var(--border-color);
+     border-radius: 100%;
+     width: 55rem;
+     height: 55rem;
+     position: relative;
+     box-shadow: .3rem .3rem 1.5rem rgb(20, 20, 20);
+ }
+
+ .game__pad--blue {
+    grid-area: azul;
+    background-color: var(--normal-blue);
+    border-bottom-right-radius: 100%;
+ }
+
+ .game__pad--red {
+    grid-area: vermelho;
+    background-color: var(--normal-red);
+    border-top-right-radius: 100%;
+ }
+
+ .game__pad--yellow {
+    grid-area: amarelo;
+    background-color: var(--normal-yellow);
+    border-bottom-left-radius: 100%;
+ }
+
+ .game__pad--green {
+    grid-area: verde;
+    background-color: var(--normal-green);
+    border-top-left-radius: 100%;
+ }
+
+ .game__pad--blue.game__pad--active {
+   background-color: var(--light-blue);
+ }
+
+ .game__pad--red.game__pad--active {
+   background-color: var(--light-red);
+}
+
+.game__pad--yellow.game__pad--active {
+   background-color: var(--light-yellow);
+}
+
+.game__pad--green.game__pad--active {
+   background-color: var(--light-green);
+}
+
+.botton {
+   cursor: pointer;
+}
+
+.options {
+   position: absolute;
+   background-color: var(--center-color);
+   width: 30rem;
+   height: 30rem;
+   border: 1.7rem solid var(--border-color);
+   border-radius: 25rem;
+}
+
+.game-title {
+   font-size: 4.8rem;
+   text-transform: uppercase;
+   margin: 0;
+   padding-top: 5rem;
+   padding-left: 2.5rem;
+}
+
+.reg {
+   font-family: verdana, sans-serif;
+   font-size: 1.8rem;
+   margin-left: -1.2rem;
+   vertical-align: top;
+}
+
+.gui {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.group-large {
+   display: flex;
+   width: 30rem;
+   align-items: center;
+   justify-content: center;
+}
+
+.gui__label {
+   font-family: "arima Madurai", cursive;
+   font-weight: bold;
+   font-size: 1.2rem;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.gui__label--switch{
+   margin: 0;
+   padding-top: 1.5rem;
+}
+
+.gui__btn {
+   width: 3.7rem;
+   height: 3.7rem;
+   margin-top: 1.6rem;
+   border-radius: 5rem;
+   box-shadow: 0 .4rem .6rem #222;
+   border: .3rem solid #444;
+   cursor: pointer;
+}
+
+.gui__btn:active{
+   transform: translate(0, .4rem);
+   box-shadow: none;
+}
+
+.gui__btn-start {
+   background-color: rgb(1, 102, 102);
+}
+
+.gui__btn-start--active {
+   background-color: rgb(1, 255, 255);
+}
+
+.gui__btn-strict {
+   background-color: rgb(122, 68, 1);
+}
+
+.gui__btn-strict--active {
+   background-color: rgb(255, 145, 10);
+}
+
+.gui__btn-switch{
+   background-color: #222;
+   margin-left: .4rem;
+   margin-right: .4rem;   
+   margin-top: 1.5rem;
+   width: 7rem;
+   height: 3rem;
+   border-radius: .8rem;
+   cursor: pointer;
+}
+
+.gui__btn-switch::before {
+   content: "";
+   background-color: lightslategray;
+   display: block;
+   position: relative;
+   top: 0.1rem;
+   left: 3.5rem;
+   width: 3.3rem;
+   height: 2.7rem;
+   border-radius: .8rem;
+   border: .2rem solid #333;
+}
+
+.gui__btn-switch--on::before {
+   left: 0rem;
+}
+
+.gui__counter {
+   background-color: rgb(77, 95, 95);
+   color: rgb(71, 82, 82);
+   font-family: "Iceland", cursive;
+   font-weight: bold;
+   font-size: 3rem;
+   text-align: right;
+   width: 7rem;
+   height: 3.5rem;
+   border: .28rem solid rgb(63, 60, 60);
+   border-radius: .8rem;
+   padding-right: .6rem;
+   padding-bottom: 3.5rem;
+   margin-top: 1.6rem;
+}
+
+.gui__counter--on {
+   background-color: rgb(84, 194, 185);
+   color: rgb(84, 194, 185);
+}
+
+.gui__counter--number {
+   color: rgb(16, 61, 33);
+}
+
+@media (max-width: 600px){
+   html {
+      font-size: 45%;
+   }
+}
